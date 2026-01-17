@@ -37,3 +37,13 @@ shape = SubResource("CircleShape2D_aqk2v")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="MapBoundary"]
 polygon = PackedVector2Array(-980, 1253, 2281, 1242, 2278, -575, -981, -561)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HungerBar" type="ProgressBar" parent="CanvasLayer"]
+offset_left = 348.0
+offset_top = 25.0
+offset_right = 770.0
+offset_bottom = 52.0
+step = 0.1
+value = 100.0
