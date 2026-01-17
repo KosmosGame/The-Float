@@ -1,21 +1,18 @@
 extends StaticBody2D
 
-var berries_available = 3
-
-func _input_event(viewport, event, shape_idx):
-	# Checks if you clicked the left mouse button on the bush
+func _input_event(_viewport, event, _shape_idx):
+	# Detect left mouse click
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
-		if berries_available > 0:
-			eat_berry()
-		else:
-			print("No berries left!")
+		eat_berry()
 
 func eat_berry():
-	berries_available -= 1
-	print("Yum! Berries left: ", berries_available)
-	
-	# This finds your player and tells them to eat
+	# Find the player node in the world
 	var player = get_tree().get_root().find_child("CharacterBody2D", true, false)
+	
 	if player:
-		player.hunger = min(player.hunger + 10, 100) # Adds 10 hunger
-		print("New Hunger: ", int(player.hunger))
+		# Add 15 hunger but cap it at 100
+		player.hunger = min(player.hunger + 15, 100)
+		print("Yum! Bush consumed. Hunger: ", int(player.hunger))
+	
+	# This makes the bush vanish immediately
+	queue_free()

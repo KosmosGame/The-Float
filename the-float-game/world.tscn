@@ -8,6 +8,22 @@
 [node name="World" type="Node2D"]
 position = Vector2(-12, 7)
 
+[node name="ColorRect" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(4000, 4000)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -2000.0
+offset_top = -2000.0
+offset_right = 2000.0
+offset_bottom = 2000.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0.87432843, 0, 1)
+
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
 position = Vector2(576, 324)
 script = ExtResource("1_f3sb7")
@@ -23,6 +39,7 @@ texture = ExtResource("2_fj7yv")
 [node name="MapBoundary" type="StaticBody2D" parent="."]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="MapBoundary"]
+position = Vector2(-72, -15)
 polygon = PackedVector2Array(-980, 1253, 2281, 1242, 2278, -575, -981, -561)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
