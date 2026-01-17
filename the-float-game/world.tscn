@@ -1,13 +1,32 @@
-[gd_scene load_steps=3 format=3 uid="uid://cl6ldgo3w584b"]
+[gd_scene load_steps=5 format=3 uid="uid://cl6ldgo3w584b"]
 
 [ext_resource type="Script" uid="uid://cwdalnounopdy" path="res://character_body_2d.gd" id="1_f3sb7"]
 [ext_resource type="Texture2D" uid="uid://cjo23jiwlp75u" path="res://icon.svg" id="2_fj7yv"]
+[ext_resource type="Script" uid="uid://b0607i7xapx4q" path="res://berry_bush.gd" id="3_tlwt5"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_aqk2v"]
+radius = 92.309265
 
 [node name="World" type="Node2D"]
+position = Vector2(-12, 7)
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
 position = Vector2(576, 324)
 script = ExtResource("1_f3sb7")
 
 [node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
+position = Vector2(1, -2)
 texture = ExtResource("2_fj7yv")
+
+[node name="BerryBush" type="StaticBody2D" parent="."]
+input_pickable = true
+script = ExtResource("3_tlwt5")
+
+[node name="Sprite2D" type="Sprite2D" parent="BerryBush"]
+self_modulate = Color(0.6217705, 0.9999998, 0.20867741, 1)
+position = Vector2(145, 59)
+texture = ExtResource("2_fj7yv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BerryBush"]
+position = Vector2(145, 56)
+shape = SubResource("CircleShape2D_aqk2v")

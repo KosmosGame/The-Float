@@ -1,5 +1,5 @@
 extends CharacterBody2D
-
+var hunger = 50.0
 var speed = 300
 
 func _physics_process(delta):
