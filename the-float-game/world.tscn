@@ -18,6 +18,8 @@ script = ExtResource("1_f3sb7")
 position = Vector2(1, -2)
 texture = ExtResource("2_fj7yv")
 
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
+
 [node name="BerryBush" type="StaticBody2D" parent="."]
 input_pickable = true
 script = ExtResource("3_tlwt5")
@@ -30,3 +32,8 @@ texture = ExtResource("2_fj7yv")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BerryBush"]
 position = Vector2(145, 56)
 shape = SubResource("CircleShape2D_aqk2v")
+
+[node name="MapBoundary" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="MapBoundary"]
+polygon = PackedVector2Array(-980, 1253, 2281, 1242, 2278, -575, -981, -561)
