@@ -2,10 +2,8 @@
 
 [ext_resource type="Script" uid="uid://cwdalnounopdy" path="res://character_body_2d.gd" id="1_f3sb7"]
 [ext_resource type="Texture2D" uid="uid://cjo23jiwlp75u" path="res://icon.svg" id="2_fj7yv"]
-[ext_resource type="Script" uid="uid://b0607i7xapx4q" path="res://berry_bush.gd" id="3_tlwt5"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_aqk2v"]
-radius = 92.309265
+[ext_resource type="PackedScene" uid="uid://drbmc86p6i765" path="res://berry_bush.tscn" id="3_aqk2v"]
+[ext_resource type="Script" uid="uid://ioo8f36cq5iw" path="res://bush_spawner.gd" id="4_036b0"]
 
 [node name="World" type="Node2D"]
 position = Vector2(-12, 7)
@@ -20,18 +18,7 @@ texture = ExtResource("2_fj7yv")
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
 
-[node name="BerryBush" type="StaticBody2D" parent="."]
-input_pickable = true
-script = ExtResource("3_tlwt5")
-
-[node name="Sprite2D" type="Sprite2D" parent="BerryBush"]
-self_modulate = Color(0.6217705, 0.9999998, 0.20867741, 1)
-position = Vector2(145, 59)
-texture = ExtResource("2_fj7yv")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="BerryBush"]
-position = Vector2(145, 56)
-shape = SubResource("CircleShape2D_aqk2v")
+[node name="BerryBush" parent="." instance=ExtResource("3_aqk2v")]
 
 [node name="MapBoundary" type="StaticBody2D" parent="."]
 
@@ -47,3 +34,6 @@ offset_right = 770.0
 offset_bottom = 52.0
 step = 0.1
 value = 100.0
+
+[node name="BushSpawner" type="Node2D" parent="."]
+script = ExtResource("4_036b0")
